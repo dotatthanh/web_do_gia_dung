@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="TzivisrDQXT5IWYg46zXshgyZAFn8LYCqFgz72qR">
-    <link rel="icon" type="image/png" href="{{ asset('image/logo2.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('image/logo-sunhouse-nho.png') }}" />
     <link rel="stylesheet" type="text/css"
         href="{{ asset('frontend/vendor/bootstrap4.5.2/bootstrap-theme.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/vendor/bootstrap4.5.2/bootstrap.min.css') }}" />
@@ -69,8 +69,8 @@
                 <div id="head-body" class="clearfix">
                     <div class="wp-inner clearfix">
                         <!-- @todo -->
-                        <a href="{{ frontendRouter('home') }}" title="" id="logo" class="fl-left">
-                            <img src="{{ asset('image/2.png') }}" style="object-fit: cover" />
+                        <a href="{{ frontendRouter('home') }}" title="" id="logo" class="fl-left bg-white">
+                            <img src="{{ asset('image/logo-sunhouse-nho.png') }}" style="object-fit: cover" />
                         </a>
                         <div id="search-wp" class="fl-left">
                             <form method="GET" action="{{ frontendRouter('tim-kiem') }}"
@@ -201,8 +201,13 @@
                 <div id="foot-body">
                     <div class="wp-inner clearfix">
                         <div class="block" id="info-company">
-                            <h3 class="title">CỬA HÀNG ĐỒ THỂ THAO</h3>
-                            <h3 class="title" style="text-align:center">D-Sport</h3>
+                            {{-- <h3 class="title">CỬA HÀNG ĐỒ THỂ THAO</h3>
+                            <h3 class="title" style="text-align:center">D-Sport</h3> --}}
+                            <div class="text-center">
+                                <a href="/" class="d-inline-block">
+                                    <img src="{{ asset('image/logo-sunhouse-nho.png') }}"/>
+                                </a>
+                            </div>
                             <p class="desc">ĐỒ THỂ THAO luôn cung cấp luôn là sản phẩm chính hãng có thông tin
                                 rõ ràng, chính
                                 sách ưu đãi cực lớn cho khách hàng có thẻ thành viên.</p>
@@ -282,7 +287,7 @@
         </div>
         <!-- END-Container -->
         <div id="menu-respon">
-            <a title="" class="logo bg-secondary"><img src="{{ asset('image/2.png') }}" /></a>
+            <a title="" class="logo bg-secondary"><img src="{{ asset('image/logo-sunhouse-nho.png') }}" /></a>
             <div id="menu-respon-wp">
                 <ul class="" id="main-menu-respon">
                     @foreach (arrayGet($viewComposer, 'categories') as $category)

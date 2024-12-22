@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" href="{{ asset('image/2.png') }}"/>
+    <link rel="icon" type="image/png" href="{{ asset('image/logo-sunhouse-nho.png') }}"/>
     <title>{{ getSiteName() }}</title>
 
     {{--<meta name="description" content="@yield('description')">--}}

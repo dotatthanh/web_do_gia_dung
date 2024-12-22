@@ -14,15 +14,29 @@
     <div class="section" id="slider-wp">
         <div class="section-detail">
             <div class="item">
-                <img src="{{ asset('frontend/theme/image/slider_1.jpg') }}" alt="">
+                <img src="{{ asset('frontend/theme/image/slider/slider_1.png') }}" alt="">
             </div>
             <div class="item">
-                <img src="{{ asset('frontend/theme/image/slider_2.jpg') }}" alt="">
+                <img src="{{ asset('frontend/theme/image/slider/slider_2.png') }}" alt="">
             </div>
             <div class="item">
-                <img src="{{ asset('frontend/theme/image/slider_3.jpg') }}" alt="">
+                <img src="{{ asset('frontend/theme/image/slider/slider_3.png') }}" alt="">
             </div>
-            
+            <div class="item">
+                <img src="{{ asset('frontend/theme/image/slider/slider_4.png') }}" alt="">
+            </div>
+            <div class="item">
+                <img src="{{ asset('frontend/theme/image/slider/slider_5.png') }}" alt="">
+            </div>
+            <div class="item">
+                <img src="{{ asset('frontend/theme/image/slider/slider_6.png') }}" alt="">
+            </div>
+            <div class="item">
+                <img src="{{ asset('frontend/theme/image/slider/slider_7.jpg') }}" alt="">
+            </div>
+            <div class="item">
+                <img src="{{ asset('frontend/theme/image/slider/slider_8.jpg') }}" alt="">
+            </div>
         </div>
     </div>
     <div class="section" id="support-wp">
