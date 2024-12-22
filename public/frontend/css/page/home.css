@@ -1,0 +1,36 @@
+﻿div.section-detail ul.list-item li, .feature-product-wp .section-detail ul.list-item li{
+    position: relative;
+    overflow: hidden;
+}
+div.section-detail ul.list-item li a.add-cart,.feature-product-wp .section-detail ul.list-item li a.add-cart{
+    position: absolute;
+    bottom: -38px;
+  
+  
+}
+div.section-detail ul.list-item li:hover a.add-cart, .feature-product-wp .section-detail ul.list-item li:hover a.add-cart{
+  
+
+    bottom: 0px;
+    transition: bottom 1.0s;
+
+}
+
+.feature-product-wp .section-detail .product-name {
+    display: inline-block;
+    text-align: left;
+    color: #222;
+    font-family: 'Roboto Medium';
+    margin: 15px 0px 5px 0px;
+    line-height: normal;
+    min-height: 34px;
+}
+
+.feature-product-wp .section-detail .price .new {
+    display: inline-block;
+    font-family: 'Roboto Medium';
+    color: #f12a43;
+    font-size: 15px;
+    font-weight: normal;
+    margin-right: 5px;
+}
