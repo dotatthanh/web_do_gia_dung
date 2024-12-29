@@ -59,7 +59,7 @@ class OrderController extends BackendController
                 return backSystemError();
             }
 
-            if ($entity->status != getConfig('order-status-new')) {
+            if ($entity->status != getConfig('pending')) {
                 return backSystemError();
             }
 

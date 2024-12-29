@@ -256,7 +256,7 @@ class FrontendController extends BaseFrontendController
             return redirect()->route(frontendRouterName('home'));
         }
 
-        $order = Order::delFlagOn()->where('status', getConfig('order-status-new'))->orderBy('id', 'desc')->first();
+        $order = Order::delFlagOn()->where('status', getConfig('pending'))->orderBy('id', 'desc')->first();
 
         $viewData = [
             'order' => $order,
@@ -370,7 +370,7 @@ class FrontendController extends BaseFrontendController
             $dataOrder['address'] = request('address');
             $dataOrder['phone'] = request('phone');
             $dataOrder['total_money'] = request('total_money');
-            $dataOrder['status'] = getConfig('order-status-new');
+            $dataOrder['status'] = getConfig('pending');
             $ordersEntity = Order::create($dataOrder);
             $orderId = $ordersEntity->getKey();
 

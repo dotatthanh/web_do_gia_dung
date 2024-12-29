@@ -55,19 +55,19 @@
 
                         <div class="form-row">
                             <div class="form-col fl-left">
-                                <div class="my-select2">
+                                {{-- <div class="my-select2"> --}}
                                     <label for="phone">Trạng thái</label>
                                     <select class="select2-category-course select2-category-course-wrapper select2-wrapper" name="status">
                                         <option selected readonly value="">--- Vui lòng chọn ---</option>
                                         @foreach(getConfig('order-status') as $key => $item)
-                                            @if ($key != getConfig('order-status-success') && $key != getConfig('order-status-cancel-by-admin'))
+                                            @if ($key == getConfig('pending') || $key == getConfig('cancel-by-user'))
                                                 <option value = "{{ $key }}" {{ oldInput(old('status'), $order->status) == $key  ? "selected" : '' }}>
                                                     {{ $item }}
                                                 </option>
                                             @endif
                                         @endforeach
                                     </select>
-                                </div>
+                                {{-- </div> --}}
                             </div>
                         </div>
 

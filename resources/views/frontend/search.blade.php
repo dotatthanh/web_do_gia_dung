@@ -135,10 +135,12 @@
                                 <small>&nbsp</small>
                             </div>
                         @endif
+                        @if ($product->qty > 0)
                         <a href="{{ frontendRouter('them-gio-hang', ['id' => $product->id]) }}" name="btn-addx"
                             title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
                             Thêm giỏ hàng
                         </a>
+                        @endif
                     </li>
                 @endforeach
             </ul>

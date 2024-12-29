@@ -46,7 +46,7 @@
                                     <td>{!! getOrderStatus($item->status)  !!}</td>
                                     <td>
                                         <a class="text-danger" href="{{ frontendRouter('account.order.detail', ['id' => $item->id]) }}"><i class="fa fa-eye"></i></a> &nbsp
-                                        @if ($item->status == getConfig('order-status-new'))
+                                        @if ($item->status == getConfig('pending'))
                                             <a class="text-danger" href="{{ frontendRouter('account.order.update', ['id' => $item->id]) }}"><i class="fa fa fa-edit"></i></a>
                                         @endif
                                     </td>

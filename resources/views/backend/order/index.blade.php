@@ -48,7 +48,7 @@
                                                     <a target="_blank" href="{{ backendRouter('order.print', $entity) }}">
                                                             <button type="button" class="btn btn-cyan btn-xs">In</button>
                                                         </a>
-                                                    @if ($entity->status == getConfig('order-status-new'))
+                                                    @if ($entity->status == getConfig('pending'))
                                                         <a href="{{ backendRouter('order.edit', ['id' => $entity->getKey()]) }}">
                                                             <button type="button" class="btn btn-cyan btn-xs">Sửa</button>
                                                         </a>

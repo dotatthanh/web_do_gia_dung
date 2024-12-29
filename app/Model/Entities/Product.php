@@ -11,7 +11,7 @@ class Product extends AuthTmp
     protected $fillable = [
         'id', 'branch_id', 'category_id', 'name', 'price_origin', 'price_sell', 'sale', 'avatar',
         'cpu', 'ram', 'sort_describe', 'ins_date', 'upd_date', 'del_flag', 'hot'
-        // , 'qty'
+        , 'qty'
     ];
 
     public function category()

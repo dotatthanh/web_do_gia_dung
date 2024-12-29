@@ -143,7 +143,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="section" id="selling-wp">
+                        {{-- <div class="section" id="selling-wp">
                             <div class="section-head">
                                 <h3 class="section-title">Sản phẩm bán chạy</h3>
                             </div>
@@ -183,7 +183,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="section" id="banner-wp">
                             <div class="section-detail">
                                 <a href="{{ frontendRouter('home') }}" title="" class="thumb">

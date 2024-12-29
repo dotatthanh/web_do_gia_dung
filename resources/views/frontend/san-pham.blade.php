@@ -92,10 +92,11 @@
 
                     </div>
                     <input type="hidden" name="_token" value="TzivisrDQXT5IWYg46zXshgyZAFn8LYCqFgz72qR">
-
+                    @if ($product->qty > 0)
                     <button type="submit" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 btn btn-danger">
                         Thêm giỏ hàng
                     </button>
+                    @endif
                 </form>
 
             </div>
@@ -135,9 +136,11 @@
                             <div class="price text-left text-danger">
                                 <small>&nbsp</small>
                             </div>
+                            @if ($product->qty > 0)
                             <button type="submit" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger">
                                 Thêm giỏ hàng
                             </button>
+                            @endif
                         @endif
                     </li>
                 @endforeach

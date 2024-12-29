@@ -72,14 +72,21 @@ return [
     ],
 
     'order-status' => [
-        1 => 'New',
-        2 => 'Success',
-        3 => 'Cancel by admin',
-        4 => 'Cancel by user',
+        1 => 'Chờ xác nhận',
+        2 => 'Giao hàng thành công',
+        3 => 'Hủy bởi quản trị viên',
+        4 => 'Hủy bởi khách hàng',
+        5 => 'Xác nhận đơn hàng thành công',
+        6 => 'Chuẩn bị hàng',
+        7 => 'Đang giao hàng',
     ],
-    'order-status-new' => 1,
-    'order-status-success' => 2,
-    'order-status-cancel-by-admin' => 3,
+    'pending' => 1,
+    'delivered' => 2,
+    'cancel-by-admin' => 3,
+    'cancel-by-user' => 4,
+    'order_confirmed' => 5,
+    'preparing_order' => 6,
+    'delivery_in_progress' => 7,
 
     'product' => [
         'hot' => ['Không', 'Có']

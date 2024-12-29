@@ -77,7 +77,7 @@
                             <td width="350px">Tên sản phẩm</td>
                             <td>Ảnh sản phẩm</td>
                             <td>Giá tiền</td>
-                            <td>Thông tin thêm</td>
+                            {{-- <td>Thông tin thêm</td> --}}
                         </tr>
                         </thead>
                         <tbody>
