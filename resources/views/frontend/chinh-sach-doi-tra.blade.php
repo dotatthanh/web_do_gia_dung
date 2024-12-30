@@ -15,8 +15,8 @@
                                     style="color:#000000;">Chính sách đổi trả</span></a></span></strong></h1>
                 <p><strong>Quý khách hàng có thể gửi yêu cầu đổi trả sản phẩm tới địa điểm mua hàng với các trường hợp và
                         thời gian cụ thể sau:</strong></p>
-                <p>1. Hàng hóa bị biến dạng, hỏng hóc do quá trình vận chuyển theo chính sách mua hàng của <b>SPORT
-                        SHOP</b>&nbsp;Tại thời điểm nhận hàng, quý khách hàng vui lòng kiểm tra sản phẩm và yêu cầu trả lại
+                <p>1. Hàng hóa bị biến dạng, hỏng hóc do quá trình vận chuyển theo chính sách mua hàng của <b>DL
+                        HCM</b>&nbsp;Tại thời điểm nhận hàng, quý khách hàng vui lòng kiểm tra sản phẩm và yêu cầu trả lại
                     nếu phát hiện lỗi hoặc không đúng sản phẩm đặt hàng.</p>
                 <p>2. Sản phẩm bị hỏng hóc, biến dạng do lỗi sản xuất và chưa qua sử dụng.</p>
                 <p>3. Cam kết đổi trả được quy định riêng đối với từng sản phẩm cụ thể.</p>

@@ -15,7 +15,7 @@
                                 style="color:#000000;">Chính Sách Bảo Hành</span></a></span></h1>
                 <p><strong>+ Cam kết hàng chuẩn như mô tả, hình ảnh, video .</strong><br>
                     <br>
-                    Tất cả sản phẩm mang thương hiệu&nbsp;<strong>SPORT SHOP&nbsp;:</strong>&nbsp;được phân phối chính thức
+                    Tất cả sản phẩm mang thương hiệu&nbsp;<strong>DL HCM&nbsp;:</strong>&nbsp;được phân phối chính thức
                     tại thị trường Việt Nam sẽ được bảo hành theo những quy định sau:<br>
                     <br>
                     <strong>1. Phạm vi bảo hành<br>
@@ -23,7 +23,7 @@
                         1.1. Sản phẩm và thời hạn bảo hành</strong><br>
                     <br>
                     Thời hạn bảo hành sản phẩm được xác nhận dựa vào phiếu bảo hành đi kèm theo từng sản phẩm
-                    của&nbsp;<strong>SPORT SHOP&nbsp;</strong>và hóa đơn mua hàng nhưng không được vượt quá thời hạn bảo
+                    của&nbsp;<strong>DL HCM&nbsp;</strong>và hóa đơn mua hàng nhưng không được vượt quá thời hạn bảo
                     hành kể từ ngày sản xuất. &nbsp;Trong trường hợp Khách hàng mất phiếu bảo hành và hóa đơn mua hàng, thời
                     hạn bảo hành kể từ ngày sản xuất sẽ được áp dụng.<br>
                     <br>
@@ -59,7 +59,7 @@
                     <br>
                     · &nbsp; &nbsp; &nbsp; &nbsp; Sản phẩm hết hạn bảo hành.<br>
                     <br>
-                    <strong>2.1. Trung tâm Chăm sóc Khách hàng của SPORT SHOP :</strong><br>
+                    <strong>2.1. Trung tâm Chăm sóc Khách hàng của DL HCM :</strong><br>
                     <br>
                     Tổng đài Chăm sóc Khách hàng trên toàn quốc :<strong>&nbsp;<a href="tel:0969959168"><span
                                 style="color:#ff0000;">0969959168</span></a></strong><br>
@@ -73,7 +73,7 @@
                     · &nbsp;Dịch vụ sửa chữa bảo hành<br>
                     <br>
                     Khi sản phẩm phát sinh hư hỏng, Khách hàng có thể mang sản phẩm đến trực tiếpTrung Tâm Bảo
-                    hành&nbsp;<strong>SPORT SHOP :</strong><br>
+                    hành&nbsp;<strong>DL HCM :</strong><br>
                     để yêu cầu dịch vụ bảo hành. Đồng thời Khách hàng sẽ được trung tâm yêu cầu cung cấp thông tin, bao
                     gồm:<br>
                     &nbsp; √ Thông tin sản phẩm: Mẫu mã, chất liệu,&nbsp;&nbsp;màu sắc, ngày mua sản phẩm...<br>
@@ -83,7 +83,7 @@
                     <strong>Dịch vụ sửa chữa ngoài bảo hành</strong><br>
                     <br>
                     Trong trường hợp Khách hàng có nhu cầu yêu cầu dịch vụ sửa chữa ngoài bảo hành, các Trung tâm Bảo hành
-                    của&nbsp;<strong>SPORT SHOP:</strong><br>
+                    của&nbsp;<strong>DL HCM:</strong><br>
                     có trách nhiệm phục vụ và sửa chữa sản phẩm tận tình và chu đáo. Khách hàng sẽ thanh toán các chi phí
                     phát sinh cho việc sửa chữa như linh kiện thay thế, tiền công và chi phí khác (nếu có) dựa theo thỏa
                     thuận giữa 2 bên.<br>
@@ -98,16 +98,16 @@
                     <br>
                     <strong>4. Địa điểm bảo hành</strong><br>
                     <br>
-                    Địa chỉ các Trung tâm Bảo hành trên toàn quốc của&nbsp;<strong>SPORT SHOP</strong><br>
-                    được in trên phiếu bảo hành kèm theo sản phẩm hoặc trên website:&nbsp;<span
-                        style="font-size:16px;"><strong>https://sportshop.vn</strong></span><br>
+                    Địa chỉ các Trung tâm Bảo hành tại HVNNVN &nbsp;<strong>DL HCM</strong><br>
+                    được in trên phiếu bảo hành kèm theo sản phẩm &nbsp;<span
+                        style="font-size:16px;"><strong></strong></span><br>
                     <br>
                     <strong>Lưu ý:</strong><br>
                     <br>
-                    Trung tâm Bảo hành của&nbsp;<strong>SPORT SHOP</strong><br>
+                    Trung tâm Bảo hành của&nbsp;<strong>DL HCM</strong><br>
                     đều có phiếu tiếp nhận bảo hành khi tiếp nhận sản phẩm bảo hành của Khách hàng (bao gồm thông tin Khách
                     hàng và sản phẩm, thông tin tình trạng sản phẩm, thời gian hoàn tất bảo hành...).<br>
-                    Vui lòng liên hệ lại trực tiếp với&nbsp;<strong>SPORT SHOP</strong><br>
+                    Vui lòng liên hệ lại trực tiếp với&nbsp;<strong>DL HCM</strong><br>
                     theo số tổng đài chăm sóc Khách hàng<strong>&nbsp;<a href="tel:0969959168"><span
                                 style="color:#ff0000;">0969959168</span></a>&nbsp;</strong>để được hỗ trợ.<br>
                     <br>
