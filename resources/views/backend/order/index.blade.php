@@ -31,6 +31,7 @@
                                             <th scope="col">Địa chỉ</th>
                                             <th scope="col">Tổng tiền (VNĐ)</th>
                                             <th scope="col">Trạng thái</th>
+                                            <th scope="col">Trạng thái thanh toán</th>
                                             <th scope="col">Hành động</th>
                                         </tr>
                                     </thead>
@@ -43,6 +44,7 @@
                                             <td>{{ $entity->address }}</td>
                                             <td>{{ formatPriceCurrency($entity->total_money) }}</td>
                                             <td>{!! getOrderStatus($entity->status)  !!}</td>
+                                            <td>{{ $entity->payment_status ? 'Đã thanh toán' : 'Chưa thanh toán' }}</td>
                                             <td>
                                                 <div class="comment-footer">
                                                     <a target="_blank" href="{{ backendRouter('order.print', $entity) }}">

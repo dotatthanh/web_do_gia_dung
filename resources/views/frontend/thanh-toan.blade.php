@@ -55,6 +55,15 @@
                                        required>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-col fl-left">
+                                <label for="phone">Phương thức thanh toán (*)</label>
+                                <select name="payment_method" required>
+                                    <option value="Thanh toán khi nhận hàng">Thanh toán khi nhận hàng</option>
+                                    <option value="Thanh toán VnPay">Thanh toán VnPay</option>
+                                </select>
+                            </div>
+                        </div>
 
                         @if (count($cart) > 0)
                             <div class="place-order-wp clearfix">

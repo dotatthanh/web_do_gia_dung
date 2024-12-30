@@ -85,6 +85,10 @@
                 <span class="float-left">Địa chỉ</span>
                 <strong class="float-right">{{$order->address}}</strong>
             </li>
+            <li class="clearfix">
+                <span class="float-left">Trạng thái thanh toán</span>
+                <strong class="float-right">{{ $order->payment_status ? 'Đã thanh toán' : 'Chưa thanh toán'}}</strong>
+            </li>
 
             <li class="clearfix">
                 <span class="float-left">Tổng tiền</span>

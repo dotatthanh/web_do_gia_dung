@@ -12,7 +12,6 @@
             font-weight: 700;
             background-color: #a1a1a11c;
         }
-
     </style>
 @endpush
 
@@ -74,8 +73,7 @@
             </h3>
             <br>
             <div class="filter">
-                <form class="form-inline" method="get"
-                    action="{{ frontendRouter('danh-muc', ['id' => $category->id]) }}">
+                <form class="form-inline" method="get" action="{{ frontendRouter('danh-muc', ['id' => $category->id]) }}">
                     @csrf
                     <div class="form-check mb-2 mr-sm-2">
                         <select class="form-control" name="price">
@@ -93,8 +91,7 @@
             <ul class="list-item clearfix">
                 @foreach ($products as $key => $product)
                     <li>
-                        <a href="{{ frontendRouter('san-pham', ['id' => $product->id]) }}" title=""
-                            class="thumb">
+                        <a href="{{ frontendRouter('san-pham', ['id' => $product->id]) }}" title="" class="thumb">
                             @if ($product->avatar)
                                 <img src="{{ asset($product->avatar) }}">
                             @else
@@ -104,13 +101,12 @@
                         <a href="{{ frontendRouter('san-pham', ['id' => $product->id]) }}" title=""
                             class="product-name text-left three_dots">{{ $product->name }}</a>
                         <div class="price text-left">
-                            <span class="new">{{ formatPriceCurrency($product->price_origin) }}đ</span>
+                            <span style="text-decoration: line-through">{{ formatPriceCurrency($product->price_origin) }}đ</span>
                         </div>
 
                         @if ($product->sale)
                             <div class="price text-left text-muted">
-                                <span
-                                    style="text-decoration: line-through">{{ formatPriceCurrency(($product->price_origin / 100) * (100 - $product->sale)) }}đ</span>
+                                <span class="new">{{ formatPriceCurrency(($product->price_origin / 100) * (100 - $product->sale)) }}đ</span>
                             </div>
                             <div class="price text-left text-danger">
                                 <small>Khuyến mại: {{ formatPriceCurrency($product->sale) }}%</small>
@@ -124,9 +120,10 @@
                             </div>
                         @endif
                         @if ($product->qty > 0)
-                        <a href="{{ frontendRouter('them-gio-hang', ['id' => $product->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
-                            Thêm giỏ hàng
-                        </a>
+                            <a href="{{ frontendRouter('them-gio-hang', ['id' => $product->id]) }}" name="btn-addx"
+                                title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
+                                Thêm giỏ hàng
+                            </a>
                         @endif
                     </li>
                 @endforeach

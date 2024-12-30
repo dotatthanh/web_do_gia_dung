@@ -250,19 +250,94 @@ class FrontendController extends BaseFrontendController
         return view('frontend.thanh-toan', $viewData);
     }
 
-    public function thanhToanThanhCong()
+    public function thanhToanThanhCong(Request $request)
     {
-        if (!frontendCurrentUser()) {
-            return redirect()->route(frontendRouterName('home'));
+        $order = Order::delFlagOn()->where('status', getConfig('pending'))->orderBy('id', 'desc')->first();
+        $data = $request->all();
+        if (isset($data['vnp_ResponseCode'])) {
+            switch ($data['vnp_ResponseCode']) {
+                case '00':
+                    $order->update(['payment_status' => 1]);
+                    break;
+                case '07':
+                    return redirect()->route(frontendRouterName('home'))->with('error', 'Trừ tiền thành công. Giao dịch bị nghi ngờ (liên quan tới lừa đảo, giao dịch bất thường).');
+                case '09':
+                    return redirect()->route(frontendRouterName('home'))->with('error', 'Giao dịch không thành công: Thẻ/Tài khoản của khách hàng chưa đăng ký dịch vụ InternetBanking tại ngân hàng.');
+                case '10':
+                    return redirect()->route(frontendRouterName('home'))->with('error', 'Giao dịch không thành công: Khách hàng xác thực thông tin thẻ/tài khoản không đúng quá 3 lần.');
+                case '11':
+                    return redirect()->route(frontendRouterName('home'))->with('error', 'Giao dịch không thành công: Đã hết hạn chờ thanh toán. Vui lòng thực hiện lại giao dịch.');
+                case '12':
+                    return redirect()->route(frontendRouterName('home'))->with('error', 'Giao dịch không thành công: Thẻ/Tài khoản của khách hàng bị khóa.');
+                case '13':
+                    return redirect()->route(frontendRouterName('home'))->with('error', 'Giao dịch không thành công: Nhập sai mật khẩu xác thực giao dịch (OTP). Vui lòng thực hiện lại giao dịch.');
+                case '24':
+                    return redirect()->route(frontendRouterName('home'))->with('error', 'Giao dịch không thành công: Khách hàng đã hủy giao dịch.');
+                case '51':
+                    return redirect()->route(frontendRouterName('home'))->with('error', 'Giao dịch không thành công: Tài khoản không đủ số dư.');
+                case '65':
+                    return redirect()->route(frontendRouterName('home'))->with('error', 'Giao dịch không thành công: Tài khoản đã vượt quá hạn mức giao dịch trong ngày.');
+                case '75':
+                    return redirect()->route(frontendRouterName('home'))->with('error', 'Ngân hàng thanh toán đang bảo trì. Vui lòng thử lại sau.');
+                case '79':
+                    return redirect()->route(frontendRouterName('home'))->with('error', 'Giao dịch không thành công: Nhập sai mật khẩu thanh toán quá số lần quy định. Vui lòng thực hiện lại giao dịch.');
+                case '99':
+                    return redirect()->route(frontendRouterName('home'))->with('error', 'Giao dịch không thành công: Lỗi không xác định.');
+                }
+        }
+        return view('frontend.thanh-toan-thanh-cong', compact('order'));
+    }
+
+    private function paymentVnpay($data_payment)
+    {
+        $vnp_TmnCode = env('VNP_TMNCODE'); //Mã website tại VNPAY 
+        $vnp_HashSecret = env('VNP_HASH_SECRET'); //Chuỗi bí mật
+        $vnp_Url = env('VNP_URL');
+        $vnp_Returnurl = env('VNP_RETURN_URL');
+
+        $vnp_TxnRef = $data_payment['order_id']; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+        $vnp_OrderInfo = 'Thanh toán.';
+        $vnp_OrderType = 'other';
+        $vnp_Amount = $data_payment['amount'] * 100;
+        $vnp_Locale = 'vn';
+        $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+
+        $inputData = array(
+            "vnp_Version" => "2.1.0",
+            "vnp_TmnCode" => $vnp_TmnCode,
+            "vnp_Amount" => $vnp_Amount,
+            "vnp_Command" => "pay",
+            "vnp_CreateDate" => date('YmdHis'),
+            "vnp_CurrCode" => "VND",
+            "vnp_IpAddr" => $vnp_IpAddr,
+            "vnp_Locale" => $vnp_Locale,
+            "vnp_OrderInfo" => $vnp_OrderInfo,
+            "vnp_OrderType" => $vnp_OrderType,
+            "vnp_ReturnUrl" => $vnp_Returnurl,
+            "vnp_TxnRef" => $vnp_TxnRef,
+        );
+
+        ksort($inputData);
+        $query = "";
+        $i = 0;
+        $hashdata = "";
+        foreach ($inputData as $key => $value) {
+            if ($i == 1) {
+                $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+            } else {
+                $hashdata .= urlencode($key) . "=" . urlencode($value);
+                $i = 1;
+            }
+            $query .= urlencode($key) . "=" . urlencode($value) . '&';
         }
 
-        $order = Order::delFlagOn()->where('status', getConfig('pending'))->orderBy('id', 'desc')->first();
+        $vnp_Url = $vnp_Url . "?" . $query;
+        if (isset($vnp_HashSecret)) {
+            $vnpSecureHash = hash_hmac('sha512', $hashdata, $vnp_HashSecret);
+            $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+        }
 
-        $viewData = [
-            'order' => $order,
-        ];
-
-        return view('frontend.thanh-toan-thanh-cong', $viewData);
+        return $vnp_Url;
     }
 
     /**
@@ -397,6 +472,15 @@ class FrontendController extends BaseFrontendController
                 Cart::where('user_id', frontendCurrentUserId())->delete();
             } else {
                 session()->forget('cart');
+            }
+
+            if (request('payment_method') == "Thanh toán VnPay") {
+                $vnpayUrl = $this->paymentVnpay([
+                    'order_id' => $ordersEntity->id,
+                    'amount' => $ordersEntity->total_money,
+                ]);
+                DB::commit();
+                return redirect($vnpayUrl);
             }
 
             DB::commit();

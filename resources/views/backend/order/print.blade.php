@@ -51,6 +51,10 @@
                 <td class="bold">Trạng thái</td>
                 <td>{!! getOrderStatus($entity->status)  !!}</td>
             </tr>
+            <tr>
+                <td class="bold">Trạng thái thanh toán</td>
+                <td>{{ $entity->payment_status ? 'Đã thanh toán' : 'Chưa thanh toán' }}</td>
+            </tr>
         </tbody>
     </table>
 

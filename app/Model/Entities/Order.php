@@ -9,7 +9,7 @@ class Order extends AuthTmp
     protected $table = 'order';
 
     protected $fillable = [
-        'id', 'user_id', 'total_money', 'address', 'phone', 'status', 'ins_date', 'upd_date', 'del_flag', 'name'
+        'id', 'user_id', 'total_money', 'address', 'phone', 'status', 'ins_date', 'upd_date', 'del_flag', 'name', 'payment_status'
     ];
 
     public function user()
