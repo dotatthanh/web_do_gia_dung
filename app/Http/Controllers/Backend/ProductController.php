@@ -95,7 +95,7 @@ class ProductController extends BackendController
             $category->fill($params);
             $category->save();
 
-            if ($params['sizes']) {
+            if (isset($params['sizes'])) {
                 foreach ($params['sizes'] as $size) {
                     if ($size['name']) {
                         Size::create([

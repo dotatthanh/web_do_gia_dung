@@ -25,7 +25,6 @@ class StatisticController extends Controller
 		->paginate(getBackendPagination());
 
         if (isset($request->from_date)) {
-            dd(1);
             $data = OrderDetail::select(
                 'product_name',
                 DB::raw('SUM(product_quantity) as amount'),

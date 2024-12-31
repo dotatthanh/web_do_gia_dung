@@ -23,6 +23,7 @@ class ProductValidator extends BaseValidator
             'category_id' => 'required',
             'price_origin' => 'required|min:0|regex:/^\d+(\.\d{1,2})?$/',
             'sale' => 'nullable|numeric|min:0|',
+            'qty' => 'required|numeric|min:1|',
             'avatar' => 'bail|nullable|mimes:jpeg,jpg,png,gif|max:1024', // 100KB, 1024kb = 1 MB
         ];
 
@@ -37,6 +38,7 @@ class ProductValidator extends BaseValidator
             'price_origin' => 'Giá gốc',
             'avatar' => 'Ảnh đại diện',
             'sale' => 'Khuyến mại',
+            'qty' => 'Số lượng',
         ];
     }
 }
