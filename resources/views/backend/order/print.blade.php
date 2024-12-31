@@ -83,9 +83,6 @@
                     @endif
                 </td>
                 <td>
-                    @if ($value->size)
-                        Size: {{ $value->size }} <br>
-                    @endif
                     Giá gốc: {{ $value->product_price_origin }} <br>
                     Sale: {{ $value->product_sale }} % <br>
                     Giá bán: {{ $value->product_price_sell }} <br>

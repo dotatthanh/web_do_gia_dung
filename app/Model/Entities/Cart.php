@@ -9,7 +9,7 @@ class Cart extends AuthTmp
     protected $table = 'cart';
 
     protected $fillable = [
-        'id', 'product_id', 'user_id', 'ins_date', 'upd_date', 'amount', 'size'
+        'id', 'product_id', 'user_id', 'ins_date', 'upd_date', 'amount'
     ];
 
     public $timestamps = false;

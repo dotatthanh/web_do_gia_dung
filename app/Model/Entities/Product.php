@@ -18,11 +18,6 @@ class Product extends AuthTmp
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
-
-    public function sizes()
-    {
-    	return $this->hasMany(Size::class);
-    }
 }
 
 

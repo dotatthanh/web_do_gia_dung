@@ -48,17 +48,6 @@
 
                     @csrf
 
-                    @if($product->sizes->count())
-                        <div class="row">
-                            <label class="col-2">Size:</label>
-                            <select class="form-control col-9" name="size">
-                                @foreach($product->sizes as $size)
-                                <option value="{{ $size->name }}">{{ $size->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    @endif
-
                     <div class="price text-left mt-3">
                         <span class="new">{{ formatPriceCurrency($product->price_origin) }}đ</span>
                     </div>

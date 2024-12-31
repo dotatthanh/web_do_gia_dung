@@ -129,27 +129,6 @@
                         </div>
 
                         <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title mb-4">Thêm size</h4>
-                                {!! $errors->first('sizes', '<span class="error">:message</span>') !!}
-
-                                <div data-repeater-list="sizes">
-                                    @foreach ($entity->sizes as $size)
-                                    <div data-repeater-item class="row">
-                                        <div class="form-group col">
-                                            <label for="use">Tên size</label>
-                                            <input type="text" id="use" name="name" class="form-control" value="{{ $size->name }}">
-                                        </div>
-
-                                        <div class="col-lg-1">
-                                            <label>Thao tác</label>
-                                            <input data-repeater-delete="" type="button" class="btn btn-danger btn-block" value="Xóa">
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                </div>
-                                <input data-repeater-create="" type="button" class="btn btn-success mt-3 mt-lg-0" value="Thêm">
-                            </div>
                             <div class="border-top">
                                 <div class="card-body">
                                     <button type="submit" class="btn btn-success">Gửi đi</button>
