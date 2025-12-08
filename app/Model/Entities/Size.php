@@ -7,7 +7,7 @@ use App\Model\Base\Auth\AuthTmp;
 class Size extends AuthTmp
 {
     protected $fillable = [
-        'name', 'product_id'
+        'name', 'product_id', 'qty'
     ];
 
     public function product()

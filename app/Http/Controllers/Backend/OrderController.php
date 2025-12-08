@@ -7,6 +7,7 @@ use App\Model\Entities\Brand;
 use App\Model\Entities\Category;
 use App\Model\Entities\Order;
 use App\Model\Entities\Product;
+use App\Model\Entities\Size;
 use App\Repositories\OrderRepository;
 use App\Repositories\ProductRepository;
 use App\Validators\ProductValidator;
@@ -59,7 +60,11 @@ class OrderController extends BackendController
                 return backSystemError();
             }
 
-            if ($entity->status != getConfig('pending')) {
+            if (
+                $entity->status == getConfig('delivered')
+                || $entity->status == getConfig('cancel-by-admin')
+                || $entity->status == getConfig('cancel-by-user')
+            ) {
                 return backSystemError();
             }
 
@@ -80,6 +85,25 @@ class OrderController extends BackendController
             $entity = Order::delFlagOn()->where('id', $id)->first();
             $entity->status = request('status');
             $entity->save();
+
+            if (
+                request('status') == getConfig('cancel-by-admin') ||
+                request('status') == getConfig('cancel-by-user')
+            ) {
+                foreach ($entity->orderDetails as $orderDetails) {
+                    $product = $orderDetails->product;
+
+                    if ($product->sizes->count() > 0) {
+                        $size = Size::where([
+                            'product_id' => $product->id,
+                            'name' => $orderDetails->size
+                        ])->first();
+                        $size->update(['qty' => $size->qty - 1]);
+                    } else {
+                        $product->update(['qty' => $product->qty - 1]);
+                    }
+                }
+            }
 
             return backRouteSuccess('backend.order.index', transMessage('update_success'));
         } catch (\Exception $e) {

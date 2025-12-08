@@ -91,18 +91,20 @@ class ProductController extends BackendController
 
             $params['price_sell'] = arrayGet($params, 'price_origin') * (100 - arrayGet($params, 'sale')) / 100;
 
+            if (is_null($params['qty'])) {
+                $params['qty'] = 0;
+            }
             $category = new Product();
             $category->fill($params);
             $category->save();
 
             if (isset($params['sizes'])) {
                 foreach ($params['sizes'] as $size) {
-                    if ($size['name']) {
-                        Size::create([
-                            'product_id' => $category->id,
-                            'name' => $size['name'],
-                        ]);
-                    }
+                    Size::create([
+                        'product_id' => $category->id,
+                        'name' => $size['name'],
+                        'qty' => $size['qty'],
+                    ]);
                 }
             }
             return backRouteSuccess('backend.product.index', transMessage('create_success'));
@@ -172,23 +174,26 @@ class ProductController extends BackendController
                 }
             }
             $params['price_sell'] = arrayGet($params, 'price_origin') * (100 - arrayGet($params, 'sale')) / 100;
+            if (is_null($params['qty'])) {
+                $params['qty'] = 0;
+            }
             $entity->fill($params);
             $entity->save();
 
             $entity->sizes()->delete();
-            if ($params['sizes']) {
+            if (isset($params['sizes'])) {
                 foreach ($params['sizes'] as $size) {
-                    if ($size['name']) {
-                        Size::create([
-                            'product_id' => $entity->id,
-                            'name' => $size['name'],
-                        ]);
-                    }
+                    Size::create([
+                        'product_id' => $entity->id,
+                        'name' => $size['name'],
+                        'qty' => $size['qty'],
+                    ]);
                 }
             }
 
             return backRouteSuccess('backend.product.index', transMessage('update_success'));
         } catch (\Exception $e) {
+            dd($e);
             logError($e);
         }
 

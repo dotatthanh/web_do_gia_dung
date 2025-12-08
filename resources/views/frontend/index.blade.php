@@ -115,10 +115,18 @@
                                 <small>&nbsp</small>
                             </div>
                         @endif
-                        @if ($product->qty > 0)
-                        <a href="{{ frontendRouter('them-gio-hang', ['id' => $product->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
-                            Thêm giỏ hàng
-                        </a>
+                        @if ($product->sizes->count() > 0)
+                            @if ($product->sizes->sum('qty') > 0)
+                                <a href="{{ frontendRouter('them-gio-hang', ['id' => $product->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
+                                    Thêm giỏ hàng
+                                </a>
+                            @endif
+                        @else
+                            @if ($product->qty > 0)
+                                <a href="{{ frontendRouter('them-gio-hang', ['id' => $product->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
+                                    Thêm giỏ hàng
+                                </a>
+                            @endif
                         @endif
                     </li>
                 @endforeach
@@ -170,10 +178,18 @@
                                     <small>&nbsp</small>
                                 </div>
                             @endif
-                            @if ($item->qty > 0)
-                            <a href="{{ frontendRouter('them-gio-hang', ['id' => $item->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
-                                Thêm giỏ hàng
-                            </a>
+                            @if ($item->sizes->count() > 0)
+                                @if ($item->sizes->sum('qty') > 0)
+                                    <a href="{{ frontendRouter('them-gio-hang', ['id' => $item->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
+                                        Thêm giỏ hàng
+                                    </a>
+                                @endif
+                            @else
+                                @if ($item->qty > 0)
+                                    <a href="{{ frontendRouter('them-gio-hang', ['id' => $item->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
+                                        Thêm giỏ hàng
+                                    </a>
+                                @endif
                             @endif
                         </li>
                     @endforeach

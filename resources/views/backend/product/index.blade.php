@@ -87,7 +87,13 @@
                                             <td>{{ getSTTBackend($entities, $key) }}</td>
                                             <td>{{ $entity->id }}</td>
                                             <td>{{ $entity->name }}</td>
-                                            <td>{{ $entity->qty }}</td>
+                                            <td>
+                                                @if ($entity->sizes->count() > 0)
+                                                    {{ $entity->sizes->sum('qty') }}
+                                                @else
+                                                    {{ $entity->qty }}
+                                                @endif
+                                            </td>
                                             <td>{{ $entity->tryGet('category')->name }}</td>
                                             <td>
                                                 @if ($entity->avatar)

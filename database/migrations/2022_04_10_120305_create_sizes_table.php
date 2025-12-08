@@ -17,6 +17,7 @@ class CreateSizesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('product_id');
             $table->string('name');
+            $table->integer('qty')->default(0);
         });
     }
 
