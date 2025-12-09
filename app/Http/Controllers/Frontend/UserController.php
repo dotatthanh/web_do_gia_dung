@@ -131,6 +131,8 @@ class UserController extends FrontendController
 
             if (!arrayGet($params, 'password')) {
                 unset($params['password']);
+            } else {
+                $params['password'] = bcrypt($params['password']);
             }
 
             $entity->fill($params);
