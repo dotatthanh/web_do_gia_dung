@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\Base\BackendController;
 use App\Model\Entities\Brand;
 use App\Model\Entities\Category;
 use App\Model\Entities\Product;
+use App\Model\Entities\Size;
 use App\Repositories\ProductRepository;
 use App\Validators\ProductValidator;
 use Illuminate\Support\Facades\File;
