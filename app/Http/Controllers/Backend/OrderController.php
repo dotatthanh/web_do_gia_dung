@@ -98,9 +98,9 @@ class OrderController extends BackendController
                             'product_id' => $product->id,
                             'name' => $orderDetails->size
                         ])->first();
-                        $size->update(['qty' => $size->qty - 1]);
+                        $size->update(['qty' => $size->qty + 1]);
                     } else {
-                        $product->update(['qty' => $product->qty - 1]);
+                        $product->update(['qty' => $product->qty + 1]);
                     }
                 }
             }

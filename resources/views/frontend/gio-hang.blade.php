@@ -28,6 +28,7 @@
                                 <td>Mã sản phẩm</td>
                                 <td>Ảnh sản phẩm</td>
                                 <td>Tên sản phẩm</td>
+                                <td width="150">Size</td>
                                 <td width="100">Số lượng</td>
                                 <td>Giá</td>
                                 <td>Thành tiền</td>
@@ -44,6 +45,7 @@
                                         @if ($cart['product_id'] == $item->id)
                                             @php
                                                 $amount = $cart['amount'];
+                                                $size = $cart['size'];
                                             @endphp
                                         @endif
                                     @endforeach
@@ -51,6 +53,7 @@
                                     @php
                                         $item_cart = App\Model\Entities\Cart::where('user_id', frontendCurrentUser()->id)->where('product_id', $item->id)->first();
                                         $amount = $item_cart->amount;
+                                        $size = $item_cart->size;
                                     @endphp
                                 @endif
                                 <tr>
@@ -68,6 +71,15 @@
                                     <td>
                                         <a href="{{ frontendRouter('san-pham', ['id' => $item->id]) }}" style="color: black"
                                            title="" class="name-product">{{ $item->name }}</a>
+                                    </td>
+                                    <td>
+                                        @if($item->sizes->count())
+                                            <select class="form-control" onchange="changeSize({{ $key }}, $(this).val())">
+                                                @foreach($item->sizes as $item_size)
+                                                <option value="{{ $item_size->name }}" @if($item_size->name == $size) selected @endif>{{ $item_size->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        @endif
                                     </td>
                                     <td style="padding-left: 10px; padding-right:10px;">
                                         <input type="number" class="form-control" min="1" value="{{ $amount }}" onchange="changeAmount({{ $key }}, $(this).val())">
@@ -97,6 +109,7 @@
                                                 @csrf
 
                                                 <input hidden="" type="number" min="1" name="amount" id="amount-hidden{{ $key }}" value="{{ $amount }}">
+                                                <input hidden type="text" min="1" name="size" id="size-hidden{{ $key }}" value="{{ $size }}">
                                                 
                                                 <button style="border: none" type="submit" title="Cập nhật sản phẩm"
                                                         class="del-product btn-success"><i class="fa fa-pencil"></i></button>
@@ -114,6 +127,7 @@
                                                 @csrf
 
                                                 <input hidden="" type="number" min="1" name="amount" id="amount-hidden{{ $key }}" value="{{ $amount }}">
+                                                <input hidden type="text" min="1" name="size" id="size-hidden{{ $key }}" value="{{ $size }}">
                                                 <button style="border: none" type="submit" title="Cập nhật sản phẩm"
                                                         class="del-product btn-success"><i class="fa fa-pencil"></i></button>
                                             </form>
@@ -180,6 +194,10 @@
     <script type="text/javascript">
         function changeAmount(key, val) {
             $(`#amount-hidden${key}`).val(val);
-        }
+        }   
+        function changeSize(key, val) {
+            console.log(key, val);
+            $(`#size-hidden${key}`).val(val);
+        }    
     </script>
 @endpush
