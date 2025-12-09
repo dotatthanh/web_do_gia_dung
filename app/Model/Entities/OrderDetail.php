@@ -10,7 +10,7 @@ class OrderDetail extends AuthTmp
 
     protected $fillable = [
         'id', 'order_id', 'product_id', 'product_name', 'product_price_origin',
-        'product_price_sell', 'product_sale', 'product_sort_describe', 'ins_date', 'upd_date', 'del_flag', 'product_avatar', 'product_quantity'
+        'product_price_sell', 'product_sale', 'product_sort_describe', 'ins_date', 'upd_date', 'del_flag', 'product_avatar', 'product_quantity', 'size'
     ];
 
     public function order()

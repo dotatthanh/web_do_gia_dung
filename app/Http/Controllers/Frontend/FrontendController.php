@@ -348,8 +348,16 @@ class FrontendController extends BaseFrontendController
     public function addToCart(Request $request, $productId)
     {
         try {
+            $size = null;
             $userId = frontendCurrentUserId();
             $product = Product::find($productId);
+            if ($product->sizes->count() && empty(request()->size)){
+                $size = $product->sizes->first()->name;
+            }
+            else
+            {
+                $size = request()->size;
+            }
 
             if (empty($userId)) {
                 $carts = request()->session()->get('cart', []);
@@ -360,6 +368,7 @@ class FrontendController extends BaseFrontendController
 
                 $product = [
                     'product_id' => $productId,
+                    'size' => $size,
                     'amount' => 1
                 ];
 
@@ -374,6 +383,7 @@ class FrontendController extends BaseFrontendController
                 $cart = empty($cart) ? new Cart() : $cart;
                 $cart->user_id = $userId;
                 $cart->product_id = $productId;
+                $cart->size = $size;
                 $cart->amount = 1;
                 $cart->save();
             }
@@ -445,11 +455,21 @@ class FrontendController extends BaseFrontendController
             foreach ($cart as $item) {
                 $product = Product::delFlagOn()->where('id', $item['product_id'])->first();
                 if (!empty($product)) {
-                    if ($product->qty == 0) {
+                    if ($product->sizes->count() > 0) {
+                        $size = Size::where([
+                            'product_id' => $product->id,
+                            'name' => $item['size']
+                        ])->first();
+                        $qty = $size->qty;
+                    } else {
+                        $qty = $product->qty;
+                    }
+
+                    if ($qty == 0) {
                         return redirect()->back()->with('notification_error', "Sản phẩm $product->name đã hết hàng");
                     }
-                    if ($product->qty < $item['amount']) {
-                        return redirect()->back()->with('notification_error', "Sản phẩm $product->name chỉ còn lại $product->qty sản phẩm");
+                    if ($qty < $item['amount']) {
+                        return redirect()->back()->with('notification_error', "Sản phẩm $product->name chỉ còn lại $qty sản phẩm");
                     }
                     $orderDetail['order_id'] = $orderId;
                     $orderDetail['product_id'] = $item['product_id'];
@@ -459,6 +479,7 @@ class FrontendController extends BaseFrontendController
                     $orderDetail['product_sale'] = $product->sale;
                     $orderDetail['product_avatar'] = $product->avatar;
                     $orderDetail['product_quantity'] = $item['amount'];
+                    $orderDetail['size'] = $item['size'];
                     OrderDetail::create($orderDetail);
                     if ($product->sizes->count() > 0) {
                         $size = Size::where([
@@ -519,6 +540,7 @@ class FrontendController extends BaseFrontendController
             $cart = Cart::find($id);
             $cart->update([
                 'amount' => $request->amount,
+                'size' => $request->size,
             ]);
         }
         else {
@@ -532,6 +554,7 @@ class FrontendController extends BaseFrontendController
                 }
             }
             $carts[$key_cart]['amount'] = $request->amount;
+            $carts[$key_cart]['size'] = $request->size;
 
             $request->session()->put('cart', $carts);
         }
