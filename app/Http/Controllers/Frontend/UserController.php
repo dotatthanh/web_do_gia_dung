@@ -7,6 +7,7 @@ use App\Model\Entities\Order;
 use App\Model\Entities\OrderDetail;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\File;
+use App\Model\Entities\Size;
 
 class UserController extends FrontendController
 {
@@ -89,6 +90,22 @@ class UserController extends FrontendController
 
             $order->fill($params);
             $order->save();
+
+            if (request('status') == getConfig('cancel-by-user')) {
+                foreach ($order->orderDetails as $orderDetails) {
+                    $product = $orderDetails->product;
+
+                    if ($product->sizes->count() > 0) {
+                        $size = Size::where([
+                            'product_id' => $product->id,
+                            'name' => $orderDetails->size
+                        ])->first();
+                        $size->update(['qty' => $size->qty + 1]);
+                    } else {
+                        $product->update(['qty' => $product->qty + 1]);
+                    }
+                }
+            }
 
             return backRouteSuccess(frontendRouterName('account.order.history'), transMessage('update_success'));
         } catch (\Exception $e) {

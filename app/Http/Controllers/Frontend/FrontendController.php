@@ -12,6 +12,7 @@ use App\Repositories\UserRepository;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Model\Entities\Size;
 ob_start();
 
 class FrontendController extends BaseFrontendController
@@ -459,7 +460,15 @@ class FrontendController extends BaseFrontendController
                     $orderDetail['product_avatar'] = $product->avatar;
                     $orderDetail['product_quantity'] = $item['amount'];
                     OrderDetail::create($orderDetail);
-                    $product->update(['qty' => $product->qty - $item['amount']]);
+                    if ($product->sizes->count() > 0) {
+                        $size = Size::where([
+                            'product_id' => $product->id,
+                            'name' => $item['size']
+                        ])->first();
+                        $size->update(['qty' => $size->qty - 1]);
+                    } else {
+                        $product->update(['qty' => $product->qty - 1]);
+                    }
                 }
             }
 

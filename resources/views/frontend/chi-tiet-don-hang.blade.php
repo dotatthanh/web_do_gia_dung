@@ -94,6 +94,9 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if ($item->size)
+                                        Size: {{ $item->size }} <br>
+                                        @endif
                                         Giá bán: {{ formatPriceCurrency($item->product_price_sell) }} <br>
                                         Sale: {{ $item->product_sale }} %<br>
                                         Giá gốc: <span style="text-decoration: line-through">{{ formatPriceCurrency($item->product_price_origin) }}</span> <br>

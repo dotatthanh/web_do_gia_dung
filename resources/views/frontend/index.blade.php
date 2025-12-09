@@ -14,29 +14,15 @@
     <div class="section" id="slider-wp">
         <div class="section-detail">
             <div class="item">
-                <img src="{{ asset('frontend/theme/image/slider/slider_1.png') }}" alt="">
+                <img src="{{ asset('frontend/theme/image/slider_1.jpg') }}" alt="">
             </div>
             <div class="item">
-                <img src="{{ asset('frontend/theme/image/slider/slider_2.png') }}" alt="">
+                <img src="{{ asset('frontend/theme/image/slider_2.jpg') }}" alt="">
             </div>
             <div class="item">
-                <img src="{{ asset('frontend/theme/image/slider/slider_3.png') }}" alt="">
+                <img src="{{ asset('frontend/theme/image/slider_3.jpg') }}" alt="">
             </div>
-            <div class="item">
-                <img src="{{ asset('frontend/theme/image/slider/slider_4.png') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('frontend/theme/image/slider/slider_5.png') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('frontend/theme/image/slider/slider_6.png') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('frontend/theme/image/slider/slider_7.jpg') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('frontend/theme/image/slider/slider_8.jpg') }}" alt="">
-            </div>
+            
         </div>
     </div>
     <div class="section" id="support-wp">
@@ -115,10 +101,18 @@
                                 <small>&nbsp</small>
                             </div>
                         @endif
-                        @if ($product->qty > 0)
-                        <a href="{{ frontendRouter('them-gio-hang', ['id' => $product->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
-                            Thêm giỏ hàng
-                        </a>
+                        @if ($product->sizes->count() > 0)
+                            @if ($product->sizes->sum('qty') > 0)
+                                <a href="{{ frontendRouter('them-gio-hang', ['id' => $product->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
+                                    Thêm giỏ hàng
+                                </a>
+                            @endif
+                        @else
+                            @if ($product->qty > 0)
+                                <a href="{{ frontendRouter('them-gio-hang', ['id' => $product->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
+                                    Thêm giỏ hàng
+                                </a>
+                            @endif
                         @endif
                     </li>
                 @endforeach
@@ -170,10 +164,18 @@
                                     <small>&nbsp</small>
                                 </div>
                             @endif
-                            @if ($item->qty > 0)
-                            <a href="{{ frontendRouter('them-gio-hang', ['id' => $item->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
-                                Thêm giỏ hàng
-                            </a>
+                            @if ($item->sizes->count() > 0)
+                                @if ($item->sizes->sum('qty') > 0)
+                                    <a href="{{ frontendRouter('them-gio-hang', ['id' => $item->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
+                                        Thêm giỏ hàng
+                                    </a>
+                                @endif
+                            @else
+                                @if ($item->qty > 0)
+                                    <a href="{{ frontendRouter('them-gio-hang', ['id' => $item->id]) }}" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger add-cart">
+                                        Thêm giỏ hàng
+                                    </a>
+                                @endif
                             @endif
                         </li>
                     @endforeach
