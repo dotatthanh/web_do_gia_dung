@@ -49,13 +49,13 @@
                     @csrf
 
                     <div class="price text-left mt-3">
-                        <span class="new">{{ formatPriceCurrency($product->price_origin) }}đ</span>
+                        <span class="new">{{ formatPriceCurrency($product->price_sell) }}đ</span>
                     </div>
 
                     @if ($product->sale)
                         <div class="price text-left text-muted">
                             <span
-                                style="text-decoration: line-through">{{ formatPriceCurrency(($product->price_origin * 100) / (100 - $product->sale)) }}đ</span>
+                                style="text-decoration: line-through">{{ formatPriceCurrency($product->price_origin) }}đ</span>
                         </div>
                         <div class="text-left text-danger">
                             <small>Khuyến mại: {{ formatPriceCurrency($product->sale) }}%</small>
@@ -73,18 +73,33 @@
                         <span class="stock-brand-title"><strong><i class="ion ion-ios-checkmark-circle"></i> Tình
                                 trạng:</strong></span>
 
-                        @if ($product->qty > 0)
-                            <span class="a-stock a2">Còn hàng</span>
+                        @if ($product->sizes->count() > 0)
+                            @if ($product->sizes->sum('qty') > 0)
+                                <span class="a-stock a2">Còn hàng</span>
+                            @else
+                                <span class="a-stock a1">Hết hàng</span>
+                            @endif
                         @else
-                            <span class="a-stock a1">Hết hàng</span>
+                            @if ($product->qty > 0)
+                                <span class="a-stock a2">Còn hàng</span>
+                            @else
+                                <span class="a-stock a1">Hết hàng</span>
+                            @endif
                         @endif
-
                     </div>
-                    <input type="hidden" name="_token" value="TzivisrDQXT5IWYg46zXshgyZAFn8LYCqFgz72qR">
-                    @if ($product->qty > 0)
-                    <button type="submit" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 btn btn-danger">
-                        Thêm giỏ hàng
-                    </button>
+
+                    @if ($product->sizes->count() > 0)
+                        @if ($product->sizes->sum('qty') > 0)
+                            <button type="submit" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 btn btn-danger">
+                                Thêm giỏ hàng
+                            </button>
+                        @endif
+                    @else
+                        @if ($product->qty > 0)
+                            <button type="submit" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 btn btn-danger">
+                                Thêm giỏ hàng
+                            </button>
+                        @endif
                     @endif
                 </form>
 
@@ -107,13 +122,13 @@
                         <a href="{{ frontendRouter('san-pham', ['id' => $product->id]) }}" title=""
                             class="product-name two_dots">{{ $product->name }}</a>
                         <div class="price text-left">
-                            <span class="new">{{ formatPriceCurrency($product->price_origin) }}đ</span>
+                            <span class="new">{{ formatPriceCurrency($product->price_sell) }}đ</span>
                         </div>
 
                         @if ($product->sale)
                             <div class="price text-left text-muted">
                                 <span
-                                    style="text-decoration: line-through">{{ formatPriceCurrency(($product->price_origin * 100) / (100 - $product->sale)) }}đ</span>
+                                    style="text-decoration: line-through">{{ formatPriceCurrency($product->price_origin) }}đ</span>
                             </div>
                             <div class="price text-left text-danger">
                                 <small>Khuyến mại: {{ formatPriceCurrency($product->sale) }}%</small>
@@ -125,10 +140,18 @@
                             <div class="price text-left text-danger">
                                 <small>&nbsp</small>
                             </div>
-                            @if ($product->qty > 0)
-                            <button type="submit" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger">
-                                Thêm giỏ hàng
-                            </button>
+                            @if ($product->sizes->count() > 0)
+                                @if ($product->sizes->sum('qty') > 0)
+                                    <button type="submit" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger">
+                                        Thêm giỏ hàng
+                                    </button>
+                                @endif
+                            @else
+                                @if ($product->qty > 0)
+                                    <button type="submit" name="btn-addx" title="Thêm giỏ hàng" class="mt-3 w-100 btn btn-danger">
+                                        Thêm giỏ hàng
+                                    </button>
+                                @endif
                             @endif
                         @endif
                     </li>

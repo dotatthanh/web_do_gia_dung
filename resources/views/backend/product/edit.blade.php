@@ -41,14 +41,14 @@
                                                             <label for="fname" class="col-sm-3 text-right control-label col-form-label">Tên *</label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control" name="name"
-                                                                       required value="{{ oldInput(old('name'), $entity->name)}}" placeholder="Nhập tên">
+                                                                     value="{{ oldInput(old('name'), $entity->name)}}" placeholder="Nhập tên">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label for="fname" class="col-sm-3 text-right control-label col-form-label">Số lượng *</label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control" name="qty"
-                                                                       required value="{{ oldInput(old('qty'), $entity->qty)}}" placeholder="Nhập số lượng">
+                                                                     value="{{ oldInput(old('qty'), $entity->qty)}}" placeholder="Nhập số lượng">
                                                             </div>
                                                         </div>
 
@@ -129,6 +129,72 @@
                         </div>
 
                         <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4">Thêm size</h4>
+                                {!! $errors->first('sizes', '<span class="error">:message</span>') !!}
+
+                                <div data-repeater-list="sizes">
+                                    {{-- @foreach ($entity->sizes as $index => $size)
+                                        <div data-repeater-item="" class="row">
+                                            <div class="form-group col-lg-5">
+                                                <label for="sizes[{{ $index }}][name]">Tên size</label>
+                                                <input type="text" id="sizes[{{ $index }}][name]" name="sizes[{{ $index }}][name]" class="form-control" placeholder="Tên size" value="{{ $size['name'] }}">
+                                            </div>
+
+                                            <div class="form-group col-lg-5">
+                                                <label for="sizes[{{ $index }}][qty]">Số lượng</label>
+                                                <input type="number" id="sizes[{{ $index }}][qty]" name="sizes[{{ $index }}][qty]" class="form-control" placeholder="Số lượng" value="{{ $size['qty'] }}">
+                                            </div>
+
+                                            <div class="col-lg-1">
+                                                <label>Thao tác</label>
+                                                <input data-repeater-delete="" type="button" class="btn btn-danger btn-block" value="Xóa">
+                                            </div>
+                                        </div>
+                                    @endforeach --}}
+                                    @php
+                                        $sizes = old('sizes', $entity->sizes->count() > 0 ? $entity->sizes : null);
+                                    @endphp
+                                    @if (isset($sizes))
+                                        @foreach ($sizes as $index => $size)
+                                            <div data-repeater-item="" class="row">
+                                                <div class="form-group col-lg-5">
+                                                    <label for="sizes[{{ $index }}][name]">Tên size</label>
+                                                    <input type="text" id="sizes[{{ $index }}][name]" name="sizes[{{ $index }}][name]" class="form-control" placeholder="Tên size" value="{{ $size['name'] }}">
+                                                </div>
+
+                                                <div class="form-group col-lg-5">
+                                                    <label for="sizes[{{ $index }}][qty]">Số lượng</label>
+                                                    <input type="number" id="sizes[{{ $index }}][qty]" name="sizes[{{ $index }}][qty]" class="form-control" placeholder="Số lượng" value="{{ $size['qty'] }}">
+                                                </div>
+
+                                                <div class="col-lg-1">
+                                                    <label>Thao tác</label>
+                                                    <input data-repeater-delete="" type="button" class="btn btn-danger btn-block" value="Xóa">
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <div data-repeater-item="" class="row">
+                                            <div class="form-group col-lg-5">
+                                                <label for="sizes[][name]">Tên size</label>
+                                                <input type="text" id="sizes[][name]" name="sizes[][name]" class="form-control" placeholder="Tên size">
+                                            </div>
+
+                                            <div class="form-group col-lg-5">
+                                                <label for="qty">Số lượng</label>
+                                                <input type="number" id="qty" name="qty" class="form-control" placeholder="Số lượng">
+                                            </div>
+
+                                            <div class="col-lg-1">
+                                                <label>Thao tác</label>
+                                                <input data-repeater-delete="" type="button" class="btn btn-danger btn-block" value="Xóa">
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                                <input data-repeater-create="" type="button" class="btn btn-success mt-3 mt-lg-0" value="Thêm">
+                            </div>
                             <div class="border-top">
                                 <div class="card-body">
                                     <button type="submit" class="btn btn-success">Gửi đi</button>
