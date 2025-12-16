@@ -83,12 +83,12 @@
                         </a>
                         <a href="{{ frontendRouter('san-pham', ['id' => $product->id]) }}" title="" class="product-name two_dots">{{ $product->name }}</a>
                         <div class="price text-left">
-                            <span class="new">{{ formatPriceCurrency($product->price_origin) }}đ</span>
+                            <span class="new">{{ formatPriceCurrency($product->price_sell) }}đ</span>
                         </div>
 
                         @if ($product->sale)
                             <div class="price text-left text-muted">
-                                <span style="text-decoration: line-through">{{ formatPriceCurrency($product->price_origin * 100 / (100 - $product->sale)) }}đ</span>
+                                <span style="text-decoration: line-through">{{ formatPriceCurrency($product->price_origin) }}đ</span>
                             </div>
                             <div class="price text-left text-danger">
                                 <small>Khuyến mại: {{ formatPriceCurrency($product->sale) }}%</small>
@@ -147,11 +147,11 @@
                                title="" class="product-name two_dots"> {{ $item->name }}
                             </a>
                             <div class="price text-left">
-                                <span class="new">{{ formatPriceCurrency($item->price_origin) }}đ</span>
+                                <span class="new">{{ formatPriceCurrency($item->price_sell) }}đ</span>
                             </div>
                             @if ($item->sale)
                                 <div class="price text-left text-muted">
-                                    <span style="text-decoration: line-through">{{ formatPriceCurrency($item->price_origin * 100 / (100 - $item->sale)) }}đ</span>
+                                    <span style="text-decoration: line-through">{{ formatPriceCurrency($item->price_origin) }}đ</span>
                                 </div>
                                 <div class="price text-left text-danger">
                                     <small>Khuyến mại: {{ formatPriceCurrency($item->sale) }}%</small>
