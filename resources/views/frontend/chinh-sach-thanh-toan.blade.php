@@ -14,7 +14,7 @@
                 <h1><strong><span style="font-size:18px;"><a href="https://ghousehangduc.vn/chinh-sach-thanh-toan#"><span
                                     style="color:#000000;">Chính Sách Thanh Toán</span></a></span></strong></h1>
                 <section>
-                    <p><strong>I</strong>. Quy trình thanh toán của&nbsp;<strong>DL HCM </strong></p>
+                    <p><strong>I</strong>. Quy trình thanh toán của&nbsp;<strong>D-SPORT </strong></p>
                     <p>Người mua và bên bán có thể tham khảo các phương thức thanh toán sau đây và lựa chọn áp dụng phương
                         thức phù hợp:</p>
                     <p><u>Cách 1:&nbsp;Thanh toán khi nhận hàng (COD):</u></p>
@@ -34,20 +34,20 @@
                     <p>+ Bước 5: Người bán chuyển hàng.</p>
                     <p>+ Bước 6: Người mua kiểm tra và nhận hàng.</p>
                     <p><strong>II</strong>. Đảm bảo an toàn giao dịch</p>
-                    <p><strong>DL HCM&nbsp;:</strong>&nbsp;đã sử dụng các dịch vụ để bảo vệ thông tin về nội dung mà
+                    <p><strong>D-SPORT&nbsp;:</strong>&nbsp;đã sử dụng các dịch vụ để bảo vệ thông tin về nội dung mà
                         người bán đăng &nbsp;sản phẩm trên website.&nbsp;Để đảm bảo các giao dịch được tiến hành thành công,
                         hạn chế tối đa rủi ro có thể phát sinh.</p>
                     <p>Người mua nên cung cấp thông tin đầy đủ (tên, địa chỉ, số điện thoại, email) khi tham gia mua hàng
-                        của&nbsp;<strong>DL HCM&nbsp;</strong>để&nbsp;có thể liên hệ nhanh lại với&nbsp;<strong>DL
-                            HCM</strong>&nbsp;trong trường hợp xảy ra lỗi.</p>
+                        của&nbsp;<strong>D-SPORT&nbsp;</strong>để&nbsp;có thể liên hệ nhanh lại với&nbsp;<strong>D-SPORT
+                            </strong>&nbsp;trong trường hợp xảy ra lỗi.</p>
                     <p>Trong trường hợp giao dịch nhận hàng tại nhà của người mua, thì người mua chỉ nên thanh toán sau khi
                         đã kiểm tra hàng hoá chi tiết và hài lòng với sản phẩm.</p>
                     <p>Khi thanh toán trực tuyến bằng thẻ ATM nội địa, Visa, Master người mua nên tự mình thực hiện và không
-                        được để lộ thông tin thẻ.&nbsp;<strong>DL HCM&nbsp;</strong>không lưu trữ thông tin thẻ của
+                        được để lộ thông tin thẻ.&nbsp;<strong>D-SPORT&nbsp;</strong>không lưu trữ thông tin thẻ của
                         người mua sau khi thanh toán, mà thông qua hệ thống của ngân hàng liên kết. Nên tuyệt đối bảo mật
                         thông tin thẻ cho khách hàng.</p>
-                    <p>Trong trường lỗi xảy ra trong quá trình thanh toán trực tuyến,&nbsp;<strong>DL
-                            HCM&nbsp;</strong>sẽ là đơn vị giải quyết cho khách hàng trong vòng 1 ngày làm việc từ khi tiếp
+                    <p>Trong trường lỗi xảy ra trong quá trình thanh toán trực tuyến,&nbsp;<strong>D-SPORT
+                            &nbsp;</strong>sẽ là đơn vị giải quyết cho khách hàng trong vòng 1 ngày làm việc từ khi tiếp
                         nhận thông tin từ người thực hiện giao dịch.</p>
                 </section>
 

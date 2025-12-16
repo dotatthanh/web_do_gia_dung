@@ -201,14 +201,14 @@
                 <div id="foot-body">
                     <div class="wp-inner clearfix">
                         <div class="block" id="info-company">
-                            {{-- <h3 class="title">CỬA HÀNG ĐỒ GIA DỤNG</h3>
-                            <h3 class="title" style="text-align:center">DL HCM</h3> --}}
+                            {{-- <h3 class="title">CỬA HÀNG ĐỒ THỂ THAO</h3>
+                            <h3 class="title" style="text-align:center">D-SPORT</h3> --}}
                             <div class="text-center">
                                 <a href="/" class="d-inline-block">
                                     <img src="{{ asset('image/2.png') }}"/>
                                 </a>
                             </div>
-                            <p class="desc">ĐỒ GIA DỤNG luôn cung cấp luôn là sản phẩm chính hãng có thông tin
+                            <p class="desc">ĐỒ THỂ THAO luôn cung cấp luôn là sản phẩm chính hãng có thông tin
                                 rõ ràng, chính
                                 sách ưu đãi cực lớn cho khách hàng có thẻ thành viên.</p>
                             <div id="payment">
@@ -228,7 +228,7 @@
                                     <p>0123.456.789</p>
                                 </li>
                                 <li>
-                                    <p>dogiadung@gmail.com</p>
+                                    <p>dothethao@gmail.com</p>
                                 </li>
                             </ul>
                         </div>
@@ -279,7 +279,7 @@
                 </div>
                 <div id="foot-bot">
                     <div class="wp-inner">
-                        <p id="copyright">© Bản quyền thuộc về dogiadung</p>
+                        <p id="copyright">© Bản quyền thuộc về dothethao</p>
                     </div>
                 </div>
             </div>
