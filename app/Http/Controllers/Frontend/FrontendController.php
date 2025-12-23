@@ -486,9 +486,9 @@ class FrontendController extends BaseFrontendController
                             'product_id' => $product->id,
                             'name' => $item['size']
                         ])->first();
-                        $size->update(['qty' => $size->qty - 1]);
+                        $size->update(['qty' => $size->qty - $item['amount']]);
                     } else {
-                        $product->update(['qty' => $product->qty - 1]);
+                        $product->update(['qty' => $product->qty - $item['amount']]);
                     }
                 }
             }
